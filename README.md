@@ -7,5 +7,6 @@ professor wrote 99% of this, and was our duty as students to interpret the lectu
 taught.
 
 Don't forget to `npm i` and `npm run build`!
+Or just `npm run everything` to make it so, make it go, make it test.
 
 Also, if this stuff looks familiar and you know where it comes from, ***don't cheat. Give it an honest attempt. Work with your fellow students.***
