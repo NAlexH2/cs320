@@ -17,6 +17,7 @@
     "webpack-dev-server": "^4.7.2"
   },
   "scripts": {
+    "bt": "npm run build && npm run test", 
     "build": "mkdirp gen/Grammar && nearleyc src/Grammar/Expression.ne -o gen/Grammar/Expression.ts && nearleyc src/Grammar/Scope.ne -o gen/Grammar/Scope.ts && webpack",
     "test": "jest",
     "clean": "rimraf build gen",

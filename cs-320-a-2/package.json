@@ -14,6 +14,7 @@
     "webpack-dev-server": "^4.7.2"
   },
   "scripts": {
+    "bt": "npm run build && npm run test", 
     "build": "webpack",
     "test": "jest",
     "clean": "rimraf build",
