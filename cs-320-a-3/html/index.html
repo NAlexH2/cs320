@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Assignment 3: CS 320</title>
+    <script src="../build/lexer.js"></script>
+    <script src="../build/expression.js"></script>
+    <script src="../build/scope.js"></script>
+    <script src="../build/main.js"></script>
+    <script src="../build/treelib.js"></script>
+    <script src="../build/iolib.js"></script>
+    <link rel="stylesheet" href="../style/main.css">
+    <link id="darkmode" rel="stylesheet" href="../style/dark.css" disabled>
+  </head>
+  <body>
+
+    <p id="toggle-colorscheme-container" class="section">
+      <label for="toggle-colorscheme">Toggle dark mode:</label>
+      <input
+        id="toggle-colorscheme"
+        type="checkbox"
+        onchange="iolib.toggleColorScheme(this.checked)"
+        onload="iolib.toggleColorScheme(this.checked)"
+      ></input>
+    </p>
+
+    <h1>Lexing</h1>
+
+    <form
+      class="section"
+      onsubmit="
+        iolib.handleForm(
+          this,
+          [iolib.identity],
+          iolib.prettyPrintTokenArray,
+          main.lex
+        );
+        return false;
+      "
+    >
+      <div>
+        <label for="input-parseExpression">source:</label>
+        <input id="input-parseExpression" type="text"></input>
+      </div>
+      <input type="submit" class="submit" value="lex(source)"></input>
+      <div>Output: <span class="output"></span></div>
+    </form>
+
+
+    <h1>Parsing: expressions</h1>
+
+    <form
+      class="section"
+      onsubmit="
+        iolib.handleForm(
+          this,
+          [iolib.identity],
+          iolib.prettyPrintTreeArray,
+          iolib.curry(main.parse)(main.expressionRules)
+        );
+        return false;
+      "
+    >
+      <div>
+        <label for="input-parseExpression">source:</label>
+        <input id="input-parseExpression" type="text"></input>
+      </div>
+      <input type="submit" class="submit" value="parse(expressionRules, source)"></input>
+      <div>Output: <span class="output"></span></div>
+    </form>
+
+    <form
+      class="section"
+      onsubmit="
+        iolib.handleForm(
+          this,
+          [iolib.identity],
+          iolib.prettyPrintTree,
+          iolib.curry(main.parseUnambiguous)(main.expressionRules)
+        );
+        return false;
+      "
+    >
+      <div>
+        <label for="input-parseUnambiguousExpression">source:</label>
+        <input id="input-parseUnambiguousExpression" type="text"></input>
+      </div>
+      <input type="submit" value="parseUnambiguous(expressionRules, source)"></input>
+      <div>Output: <span class="output"></span></div>
+    </form>
+
+
+    <h1>Parsing: scopes</h1>
+
+    <form
+      class="section"
+      onsubmit="
+        iolib.handleForm(
+          this,
+          [iolib.identity],
+          iolib.prettyPrintScope,
+          iolib.curry(main.parseUnambiguous)(main.scopeRules)
+        );
+        return false;
+      "
+    >
+      <div>
+        <label for="input-parseScope">source:</label>
+        <input id="input-parseScope" type="text"></input>
+      </div>
+      <input type="submit" value="parseUnambiguous(scopeRules, source)"></input>
+      <div>Output: <span class="output"></span></div>
+    </form>
+
+
+    <h1>Interpreting</h1>
+
+    <form
+      class="section"
+      onsubmit="
+        iolib.handleForm(
+          this,
+          [
+            iolib.curry(main.parseUnambiguous)(main.scopeRules),
+            iolib.curry(main.parseUnambiguous)(main.expressionRules)
+          ],
+          iolib.prettyPrintObject,
+          main.interpret
+        );
+        return false;
+      "
+    >
+      <div>
+        <label for="input-interpret">scope:</label>
+        <input id="input-interpret" type="text"></input>
+      </div>
+      <div>
+        <label for="input-interpret">tree:</label>
+        <input id="input-interpret" type="text"></input>
+      </div>
+      <input type="submit" value="interpret(scope, tree)"></input>
+      <div>Output: <span class="output"></span></div>
+    </form>
+
+  </body>
+</html>

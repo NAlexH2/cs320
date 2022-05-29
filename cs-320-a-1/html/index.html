@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Assignment 1: CS 320</title>
+    <script src="../build/hw1.js"></script>
+    <script src="../build/lib.js"></script>
+    <link rel="stylesheet" href="../style/main.css">
+  </head>
+  <body>
+
+    <h1>Part 1: Lists</h1>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseList],
+            lib.prettyPrintList,
+            lib.identity
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-parse">Input:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <input type="submit" value="Print input list"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [],
+            lib.prettyPrintList,
+            hw1.sampleList
+          );
+          // if you're seeing an error on any of the returns in this file,
+          // update your VSCode installation; VSCode had a bug
+          // (https://github.com/microsoft/vscode/issues/143220)
+          return false;
+        "
+      >
+        <input type="submit" value="sampleList"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseNum, lib.parseList],
+            lib.prettyPrintList,
+            hw1.cons
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-cons1">newFirst:</label>
+          <input id="input-cons1" type="text"></input>
+        </div>
+        <div>
+          <label for="input-cons2">list:</label>
+          <input id="input-cons2" type="text"></input>
+        </div>
+        <input type="submit" value="cons"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseNum, lib.parseList],
+            lib.prettyPrintList,
+            hw1.snoc
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-snoc1">newLast:</label>
+          <input id="input-snoc1" type="text"></input>
+        </div>
+        <div>
+          <label for="input-snoc2">list:</label>
+          <input id="input-snoc2" type="text"></input>
+        </div>
+        <input type="submit" value="snoc"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseList],
+            lib.prettyPrintList,
+            hw1.doubleEachIterative
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-doubleEachIterative">list:</label>
+          <input id="input-doubleEachIterative" type="text"></input>
+        </div>
+        <input type="submit" value="doubleEachIterative"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseList],
+            lib.prettyPrintList,
+            hw1.doubleEachRecursive
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-doubleEachRecursive">list:</label>
+          <input id="input-doubleEachRecursive" type="text"></input>
+        </div>
+        <input type="submit" value="doubleEachRecursive"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseList],
+            lib.prettyPrintList,
+            hw1.reverse
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-reverse">list:</label>
+          <input id="input-reverse" type="text"></input>
+        </div>
+        <input type="submit" value="reverse"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseList],
+            lib.prettyPrintList,
+            hw1.removeZeroes
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-removeZeroes">list:</label>
+          <input id="input-removeZeroes" type="text"></input>
+        </div>
+        <input type="submit" value="removeZeroes"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <h1>Part 2: Trees</h1>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseTree],
+            lib.prettyPrintTree,
+            lib.identity
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-parse">Input:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <input type="submit" value="Print input tree"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [],
+            lib.prettyPrintTree,
+            hw1.sampleTree
+          );
+          return false;
+        "
+      >
+        <input type="submit" value="sampleTree"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseTree],
+            lib.prettyPrintObject,
+            hw1.countNodesIterative
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-countNodesIterative">tree:</label>
+          <input id="input-countNodesIterative" type="text"></input>
+        </div>
+        <input type="submit" value="countNodesIterative"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseTree],
+            lib.prettyPrintObject,
+            hw1.countNodesRecursive
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-countNodesRecursive">tree:</label>
+          <input id="input-countNodesRecursive" type="text"></input>
+        </div>
+        <input type="submit" value="countNodesRecursive"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseTree],
+            lib.prettyPrintTree,
+            hw1.flipAnds
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-flipAnds">tree:</label>
+          <input id="input-flipAnds" type="text"></input>
+        </div>
+        <input type="submit" value="flipAnds"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseTree],
+            lib.prettyPrintObject,
+            hw1.evaluate
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-evaluate">tree:</label>
+          <input id="input-evaluate" type="text"></input>
+        </div>
+        <input type="submit" value="evaluate"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseTree],
+            lib.prettyPrintObject,
+            hw1.countLeaves
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-countLeaves">tree:</label>
+          <input id="input-countLeaves" type="text"></input>
+        </div>
+        <input type="submit" value="countLeaves"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          lib.handleForm(
+            this,
+            [lib.parseTree],
+            lib.prettyPrintTree,
+            hw1.removeNots
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-removeNots">tree:</label>
+          <input id="input-removeNots" type="text"></input>
+        </div>
+        <input type="submit" value="removeNots"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+  </body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "lib": [ "es6", "dom" ],
+    "target": "es6",
+    "module": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "strictFunctionTypes": false,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": [
+    "src/Grammar/Lexer.ts",
+    "src/Grammar/Postprocessors.ts",
+    "gen/Grammar/Expression.ts",
+    "gen/Grammar/Scope.ts",
+    "src/Main.ts",
+    "src/Library/Trees.ts",
+    "src/Library/IO.ts"
+  ]
+}

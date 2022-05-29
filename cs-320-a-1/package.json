@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "jest-extended": "^2.0.0",
+    "rimraf": "^3.0.2",
+    "terser-webpack-plugin": "^5.3.0",
+    "ts-jest": "^27.1.4",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.2"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "jest",
+    "clean": "rimraf build",
+    "clean-deps": "rimraf build node_modules"
+  }
+}

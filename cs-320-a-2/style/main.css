@@ -1,0 +1,18 @@
+form {
+  padding: 1em;
+  margin: auto;
+  border: 1px solid black;
+  max-width: 8.5in;
+}
+
+.code {
+  font-family: monospace;
+}
+
+.scope, .scope td, .scope th {
+  border: 1px solid black;
+}
+
+.scope {
+  border-collapse: collapse;
+}

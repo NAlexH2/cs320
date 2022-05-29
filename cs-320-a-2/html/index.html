@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Assignment 2: CS 320</title>
+    <script src="../build/hw2.js"></script>
+    <script src="../build/astlib.js"></script>
+    <script src="../build/iolib.js"></script>
+    <link rel="stylesheet" href="../style/main.css">
+  </head>
+  <body>
+
+    <p>
+      <form
+        onsubmit="
+          iolib.handleForm(
+            this,
+            [iolib.readTree],
+            iolib.prettyPrintTree,
+            iolib.identity
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-parse">Input:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <input type="submit" value="Print input tree"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          iolib.handleForm(
+            this,
+            [iolib.readScope],
+            iolib.prettyPrintScope,
+            iolib.identity
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-parse">Input:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <input type="submit" value="Print input scope"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          iolib.handleForm(
+            this,
+            [],
+            iolib.prettyPrintTree,
+            hw2.sampleTree
+          );
+          return false;
+        "
+      >
+        <input type="submit" value="sampleTree"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          iolib.handleForm(
+            this,
+            [],
+            iolib.prettyPrintScope,
+            hw2.sampleScope
+          );
+          return false;
+        "
+      >
+        <input type="submit" value="sampleScope"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          iolib.handleForm(
+            this,
+            [iolib.identity, iolib.readScope],
+            iolib.prettyPrintObject,
+            hw2.lookup
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-parse">name:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <div>
+          <label for="input-parse">scope:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <input type="submit" value="lookup"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          iolib.handleForm(
+            this,
+            [iolib.readScope, iolib.readTree],
+            iolib.prettyPrintObject,
+            hw2.interpret
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-parse">scope:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <div>
+          <label for="input-parse">tree:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <input type="submit" value="interpret"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          iolib.handleForm(
+            this,
+            [iolib.readTree],
+            iolib.prettyPrintTree,
+            hw2.simplifyNegatedLeaves
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-parse">tree:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <input type="submit" value="simplifyNegatedLeaves"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          iolib.handleForm(
+            this,
+            [iolib.identity, iolib.readTree],
+            iolib.prettyPrintObject,
+            hw2.countNameOccurrences
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-parse">name:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <div>
+          <label for="input-parse">tree:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <input type="submit" value="countNameOccurrences"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          iolib.handleForm(
+            this,
+            [iolib.readScope, iolib.readTree],
+            iolib.prettyPrintTree,
+            hw2.substituteAllNames
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-parse">scope:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <div>
+          <label for="input-parse">tree:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <input type="submit" value="substituteAllNames"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+    <p>
+      <form
+        onsubmit="
+          iolib.handleForm(
+            this,
+            [iolib.readTree],
+            iolib.prettyPrintTree,
+            hw2.removeDoubleNegations
+          );
+          return false;
+        "
+      >
+        <div>
+          <label for="input-parse">tree:</label>
+          <input id="input-parse" type="text"></input>
+        </div>
+        <input type="submit" value="removeDoubleNegations"></input>
+        <div>Output: <span class="output"></span></div>
+      </form>
+    </p>
+
+  </body>
+</html>

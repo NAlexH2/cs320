@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Assignment 6: CS 320</title>
+    <script src="../build/ast.js"></script>
+    <script src="../build/syntaxAnalysis.js"></script>
+    <script src="../build/treelib.js"></script>
+    <script src="../build/iolib.js"></script>
+    <script src="../build/main.js"></script>
+    <link rel="stylesheet" href="../style/main.css">
+    <link id="darkmode" rel="stylesheet" href="../style/dark.css" disabled>
+  </head>
+  <body>
+
+    <p id="toggle-colorscheme-container" class="section">
+      <label for="toggle-colorscheme">Toggle dark mode:</label>
+      <input
+        id="toggle-colorscheme"
+        type="checkbox"
+        onchange="iolib.toggleColorScheme(this.checked)"
+        onload="iolib.toggleColorScheme(this.checked)"
+      ></input>
+    </p>
+
+    <h1>Lexing</h1>
+
+    <form
+      class="section"
+      onsubmit="
+        iolib.handleForm(
+          this,
+          [iolib.identity],
+          iolib.prettyPrintTokenArray,
+          syntaxAnalysis.lex
+        );
+        return false;
+      "
+    >
+      <div>
+        <label for="input-lex">source:</label>
+        <textarea id="input-lex" class="codebox"></textarea>
+      </div>
+      <input type="submit" class="submit" value="lex(source)"></input>
+      <div>Output: <span class="output"></span></div>
+    </form>
+
+
+    <h1>Parsing</h1>
+
+    <form
+      class="section"
+      onsubmit="
+        iolib.handleForm(
+          this,
+          [iolib.identity],
+          iolib.prettyPrintProg,
+          syntaxAnalysis.parse
+        );
+        return false;
+      "
+    >
+      <div>
+        <label for="input-parseStmt">source:</label>
+        <textarea id="input-parseStmt" class="codebox"></textarea>
+      </div>
+      <input type="submit" value="parse(source)"></input>
+      <div>Output: <span class="output"></span></div>
+    </form>
+
+
+    <h1>Typechecking</h1>
+
+    <form
+      class="section"
+      onsubmit="
+        iolib.handleForm(
+          this,
+          [iolib.identity],
+          iolib.prettyPrintString,
+          iolib.typecheck
+        );
+        return false;
+      "
+    >
+      <div>
+        <label for="input-typecheck">source:</label>
+        <textarea id="input-typecheck" class="codebox"></textarea>
+      </div>
+      <input type="submit" value="runTypechecker(source)"></input>
+      <div>Typechecker output: <span id="typechecker-output" class="output" class="code"></span></div>
+    </form>
+
+
+    <h1>Interpreting</h1>
+
+    <form
+      class="section"
+      onsubmit="
+        iolib.handleForm(
+          this,
+          [iolib.identity],
+          iolib.empty,
+          main.runInterpreter
+        );
+        return false;
+      "
+    >
+      <div>
+        <label for="input-interpret">source:</label>
+        <textarea id="input-interpret" class="codebox"></textarea>
+      </div>
+      <input type="submit" value="runInterpreter(source)"></input>
+      <div>Printed values: <ol id="print-output" class="code"></ol></div>
+      <div>Error output: <span class="output" class="code"></span></div>
+    </form>
+
+  </body>
+</html>

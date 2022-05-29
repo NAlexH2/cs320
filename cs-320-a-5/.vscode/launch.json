@@ -1,0 +1,134 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug in Chrome",
+      "preLaunchTask": "npm: build",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "reAttach": true,
+      "file": "${workspaceFolder}/html/index.html",
+      "outFiles": [
+        "${workspaceFolder}/build/*.js"
+      ],
+      "webRoot": "${workspaceFolder}",
+      "suggestPathMappingWizard": true,
+      "pathMappings": [
+        {
+          "url": "webpack:///src",
+          "path": "${workspaceFolder}/src"
+        },
+        {
+          "url": "webpack:///~/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///./~/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///./",
+          "path": "${webRoot}/"
+        },
+        {
+          "url": "webpack:///src/",
+          "path": "${webRoot}/src/"
+        },
+        {
+          "url": "webpack:///node_modules/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///webpack",
+          "path": null
+        },
+        {
+          "url": "webpack:///(webpack)",
+          "path": null
+        },
+        {
+          "url": "webpack:///pages/",
+          "path": "${webRoot}/pages/"
+        },
+        {
+          "url": "webpack://[name]_[chunkhash]/node_modules/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack://[name]_[chunkhash]/",
+          "path": null
+        },
+        {
+          "url": "webpack:///",
+          "path": ""
+        }
+      ]
+    },
+    {
+      "name": "Debug in Edge",
+      "type": "pwa-msedge",
+      "preLaunchTask": "npm: build",
+      "request": "launch",
+      "reAttach": true,
+      "file": "${workspaceFolder}/html/index.html",
+      "outFiles": [
+        "${workspaceFolder}/build/*.js"
+      ],
+      "webRoot": "${workspaceFolder}",
+      "suggestPathMappingWizard": true,
+      "pathMappings": [
+        {
+          "url": "webpack:///src",
+          "path": "${workspaceFolder}/src"
+        },
+        {
+          "url": "webpack:///~/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///./~/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///./",
+          "path": "${webRoot}/"
+        },
+        {
+          "url": "webpack:///src/",
+          "path": "${webRoot}/src/"
+        },
+        {
+          "url": "webpack:///node_modules/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack:///webpack",
+          "path": null
+        },
+        {
+          "url": "webpack:///(webpack)",
+          "path": null
+        },
+        {
+          "url": "webpack:///pages/",
+          "path": "${webRoot}/pages/"
+        },
+        {
+          "url": "webpack://[name]_[chunkhash]/node_modules/",
+          "path": "${webRoot}/node_modules/"
+        },
+        {
+          "url": "webpack://[name]_[chunkhash]/",
+          "path": null
+        },
+        {
+          "url": "webpack:///",
+          "path": ""
+        }
+      ]
+    }
+  ]
+}
