@@ -17,6 +17,7 @@
     "webpack-dev-server": "^4.7.2"
   },
   "scripts": {
+    "everything": "npm i && npm run build && npm run test", 
     "bt": "npm run build && npm run test",
     "build": "mkdirp gen/SyntaxAnalysis && nearleyc src/SyntaxAnalysis/Expression.ne -o gen/SyntaxAnalysis/Expression.ts && nearleyc src/SyntaxAnalysis/Statement.ne -o gen/SyntaxAnalysis/Statement.ts && webpack",
     "test": "jest",
